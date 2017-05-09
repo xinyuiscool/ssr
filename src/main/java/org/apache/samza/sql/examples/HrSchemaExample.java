@@ -32,7 +32,8 @@ public class HrSchemaExample {
   }
 
   public static void main(String[] args) {
-    String sql = "select empid from hr.emps where deptno > 1";
+    //String sql = "select empid from hr.emps where deptno > 1";
+    String sql = "select empid from hr.emps";
     SamzaSqlRunner runner = new SamzaSqlRunner();
     runner.run(sql);
   }
