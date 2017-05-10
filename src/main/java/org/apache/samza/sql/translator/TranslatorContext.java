@@ -20,6 +20,10 @@ public class TranslatorContext {
     this.compiler = createExpressionCompiler(relRoot);
   }
 
+  public StreamGraph getStreamGraph() {
+    return streamGraph;
+  }
+
   private RexToJavaCompiler createExpressionCompiler(RelRoot relRoot) {
     RelDataTypeFactory dataTypeFactory = relRoot.project().getCluster().getTypeFactory();
     RexBuilder rexBuilder = new RexBuilder(dataTypeFactory);

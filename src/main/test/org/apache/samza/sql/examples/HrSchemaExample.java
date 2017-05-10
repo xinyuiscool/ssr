@@ -1,6 +1,7 @@
 package org.apache.samza.sql.examples;
 
 import org.apache.samza.sql.runner.SamzaSqlRunner;
+import org.apache.samza.sql.test.ReflectiveTableFactory;
 
 
 public class HrSchemaExample {
@@ -28,6 +29,12 @@ public class HrSchemaExample {
       emps = new Employee[]{new Employee(0, 1), new Employee(1, 3), new Employee(2, 10), new Employee(3, 1),
           new Employee(4, 10)};
       depts = new Department[]{new Department(1), new Department(3), new Department(10)};
+    }
+  }
+
+  public static final class EmployeeTableFactory extends ReflectiveTableFactory {
+    public EmployeeTableFactory() {
+      super(HrSchemaExample.Employee.class, new HrSchemaExample.HrSchema().emps);
     }
   }
 

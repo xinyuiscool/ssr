@@ -29,25 +29,11 @@ public class TestInmemoryQuery {
                         + "  on e.\"deptno\" = d.\"deptno\"\n"
                         + "group by d.\"deptno\"\n"
                         + "having count(*) > 1");
-        print(resultSet);
+        Util.print(resultSet);
 
         resultSet.close();
         statement.close();
         connection.close();
     }
 
-    static void print(ResultSet resultSet) throws Exception {
-        final StringBuilder buf = new StringBuilder();
-        while (resultSet.next()) {
-            int n = resultSet.getMetaData().getColumnCount();
-            for (int i = 1; i <= n; i++) {
-                buf.append(i > 1 ? "; " : "")
-                        .append(resultSet.getMetaData().getColumnLabel(i))
-                        .append("=")
-                        .append(resultSet.getObject(i));
-            }
-            System.out.println(buf.toString());
-            buf.setLength(0);
-        }
-    }
 }

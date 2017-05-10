@@ -7,7 +7,7 @@ import org.apache.samza.sql.data.Expression;
 import org.apache.samza.sql.data.TupleMessage;
 
 
-public class ProjectTranslator {
+public class ProjectTranslator implements RelNodeTranslator<Project> {
 
   public void translate(final Project project, final TranslatorContext context) {
     MessageStream<TupleMessage> inputStream = context.getMessageStream(project.getInput().getId());
