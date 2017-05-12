@@ -11,10 +11,7 @@ import org.apache.samza.system.SystemStreamMetadata;
 import org.apache.samza.system.SystemStreamPartition;
 
 
-/**
- * Created by xiliu on 5/10/17.
- */
-public class DummySystemAdmin implements SystemAdmin {
+public class SimpleSystemAdmin implements SystemAdmin {
   @Override
   public Map<SystemStreamPartition, String> getOffsetsAfter(Map<SystemStreamPartition, String> offsets) {
     return offsets.entrySet().stream()

@@ -11,8 +11,9 @@ public class ScanTranslator implements RelNodeTranslator<TableScan> {
 
   public void translate(final TableScan tableScan, final TranslatorContext context) {
     StreamGraph streamGraph = context.getStreamGraph();
+    String tableName = tableScan.getTable().getQualifiedName().get(0);
 
-    MessageStream<TupleMessage> inputStream = streamGraph.getInputStream(tableScan.identity().toString(), (String k, Object v) -> {
+    MessageStream<TupleMessage> inputStream = streamGraph.getInputStream(tableName, (String k, Object v) -> {
       RelDataType type = tableScan.getRowType();
       return TupleMessage.fromReflection(v, type);
     });
