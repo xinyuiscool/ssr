@@ -28,7 +28,7 @@ public class HrSchemaExample {
   }
 
   public static class HrSchema {
-    public final Employee[] emps;
+    public final Employee[]   emps;
     public final Department[] depts;
 
     public HrSchema() {
