@@ -32,6 +32,7 @@ public abstract class ReflectiveTableFactory implements TableFactory<Table> {
   @Override
   public final Table create(SchemaPlus schema, String name, Map<String, Object> operand, RelDataType rowType) {
     return new AbstractQueryableTable(clazz) {
+
       public RelDataType getRowType(RelDataTypeFactory typeFactory) {
         return ((JavaTypeFactory) typeFactory).createType(clazz);
       }
